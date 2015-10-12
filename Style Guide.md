@@ -3,8 +3,6 @@ Style Guidelines
 
 In order to keep the code consistent, please use the following conventions. From here on \`good' and \`bad' are used to attribute things that would make the coding style match, or not match. It is not a judgment call on your coding abilities, but more of a style and look call. Please try to follow these guidelines to ensure prettiness.
 
-On the whole, naming should follow C# standards.
-
 ### Namespaces
 
 Namespaces are all __UpperCamelCase__, multiple words concatenated together,
