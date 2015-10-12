@@ -3,7 +3,197 @@ Style Guidelines
 
 In order to keep the code consistent, please use the following conventions. From here on \`good' and \`bad' are used to attribute things that would make the coding style match, or not match. It is not a judgment call on your coding abilities, but more of a style and look call. Please try to follow these guidelines to ensure prettiness.
 
-You may also wish to read the [.Net Framework Design Guidelines](http://msdn.microsoft.com/en-us/library/ms229042.aspx) as well, however the Mono guidelines below take precedent for Mono code if there is a conflict.
+On the whole, naming should follow C# standards.
+
+### Namespaces
+
+Namespaces are all __UpperCamelCase__, multiple words concatenated together,
+without
+hypens or underscores:
+
+__BAD__:
+
+```c#
+com.raywenderlich.fpsgame.hud.healthbar
+```
+
+__GOOD__:
+
+```c#
+RayWenderlich.FPSGame.HUD.Healthbar
+```
+
+### Classes & Interfaces
+
+Written in __UpperCamelCase__. For example `RadialSlider`. 
+
+### Methods
+
+Public methods are written in __UpperCamelCase__. For example `DoSomething`. 
+
+Private methods are written in __lowerCamelCase__. For example: `doSometing`
+
+### Fields
+
+Written in __lowerCamelCase__.
+
+Static fields should be written in __UpperCamelCase__:
+
+```c#
+public static int TheAnswer = 42;
+```
+
+All non-static fields are written __lowerCamelCase__. Per Unity convention, this includes __public fields__ as well.
+
+For example:
+
+```C#
+public class MyClass {
+  public int publicField;
+  int packagePrivate;
+  private int myPrivate;
+  protected int myProtected;
+}
+```
+
+Private non-static fields should start with a lowercase letter.
+
+__BAD:__
+
+```c#
+private int _myPrivateVariable
+```
+
+__GOOD:__
+
+```c#
+private int myPrivateVariable
+```
+
+
+### Parameters
+
+Parameters are written in __lowerCamelCase__.
+
+__BAD:__
+
+```c#
+void doSomething(Vector3 Location)
+```
+__GOOD:__
+
+```c#
+void doSomething(Vector3 location)
+```
+
+Single character values to be avoided except for temporary looping variables.
+
+### Delegates
+
+Delegats are written in __UpperCamelCase__.
+
+When declaring delegates, DO add the suffix __EventHandler__ to names of delegates that are used in events. 
+
+__BAD:__
+
+```c#
+public delegate void Click()
+```
+__GOOD:__
+
+```c#
+public delegate void ClickEventHandler()
+```
+DO add the suffix __Callback__ to names of delegates other than those used as event handlers.
+
+__BAD:__
+
+```c#
+public delegate void Render()
+```
+__GOOD:__
+
+```c#
+public delegate void RenderCallback()
+```
+### Events
+
+Prefix event methods with the prefix __On__.
+
+__BAD:__
+
+```c#
+public static event CloseCallback Close;
+```
+__GOOD:__
+
+```c#
+public static event CloseCallback OnClose;
+```
+
+### Misc
+
+In code, acronyms should be treated as words. For example:
+
+__BAD:__
+
+```c#
+XMLHTTPRequest
+String URL
+findPostByID
+```
+__GOOD:__
+
+```c#
+XmlHttpRequest
+String url
+findPostById
+```
+
+## Declarations
+
+### Access Level Modifiers
+
+Access level modifiers should be explicitly defined for classes, methods and
+member variables.
+
+### Fields & Variables
+
+Prefer single declaration per line.
+
+__BAD:__
+
+```c#
+string username, twitterHandle;
+```
+
+__GOOD:__
+
+```c#
+string username;
+string twitterHandle;
+```
+
+### Classes
+
+Exactly one class per source file, although inner classes are encouraged where
+scoping appropriate.
+
+### Interfaces
+
+All interfaces should be prefaced with the letter __I__. 
+
+__BAD:__
+
+```c#
+RadialSlider
+```
+
+__GOOD:__
+
+```c#
+IRadialSlider
+```
 
 Indentation
 -----------
